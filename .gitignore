@@ -1,0 +1,13 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+.godot/
+*.uid
+.idea/
+# Local machine paths - keep these out of source control since they're per-developer.
+# (We keep Directory.Build.props itself tracked with paths commented out; if you
+# uncomment a path locally, consider `git update-index --skip-worktree Directory.Build.props`
+# instead of removing it from tracking.)

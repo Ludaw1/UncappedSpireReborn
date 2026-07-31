@@ -1,0 +1,14 @@
+﻿{
+  "id": "UncappedSpireReborn",
+  "name": "Uncapped Spire: Reborn",
+  "author": "Ludaw",
+  "description": "A suite of endless-mode features: uncapped upgrades and looping acts with scaling enemies.",
+  "version": "v0.0.1",
+  "min_game_version": "0.107.0",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [
+    {"id": "BaseLib", "min_version": "3.4.0"}
+  ],
+  "affects_gameplay": true
+}
