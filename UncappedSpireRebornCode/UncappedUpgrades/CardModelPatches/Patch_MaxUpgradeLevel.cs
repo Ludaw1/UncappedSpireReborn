@@ -4,13 +4,35 @@ using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace UncappedSpireReborn.UncappedSpireRebornCode.UncappedUpgrades.CardModelPatches;
 
-// Step 1: remove the upgrade level cap entirely for every card.
-// No per-card curation yet - that comes later once this is confirmed working.
 [HarmonyPatch(typeof(CardModel), nameof(CardModel.MaxUpgradeLevel), MethodType.Getter)]
 public static class Patch_MaxUpgradeLevel
 {
+    private const bool LogCardIdsOnFirstSight = true;
+    private static readonly HashSet<ModelId> AlreadyLogged = [];
+
     public static void Postfix(CardModel __instance, ref int __result)
     {
-        __result = int.MaxValue;
+        string branch;
+
+        if (UpgradeCapsConfig.EnergyOnlyCards.Contains(__instance.Id))
+        {
+            __result = __instance.EnergyCost.Canonical;
+            branch = "energy-only";
+        }
+        else if (UpgradeCapsConfig.CardUpgradeMaxMap.TryGetValue(__instance.Id, out var maxLevel))
+        {
+            __result = maxLevel;
+            branch = $"explicit cap ({maxLevel})";
+        }
+        else
+        {
+            __result = int.MaxValue;
+            branch = "uncapped (default)";
+        }
+
+        if (LogCardIdsOnFirstSight && AlreadyLogged.Add(__instance.Id))
+        {
+            MainFile.Logger.Info($"[UpgradeCaps] {__instance.Id} -> {branch}");
+        }
     }
 }
