@@ -1,0 +1,6 @@
+{
+  "UncappedActsEnabled": true,
+  "AscensionIncreaseEnabled": false,
+  "ScalingHpIncrement": 1.15,
+  "ScalingDmgIncrement": 1.1
+}

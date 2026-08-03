@@ -20,6 +20,7 @@ public partial class MainFile : Node
         //Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(Assembly.GetExecutingAssembly());
 
         UncappedUpgrades.UpgradeCapsConfig.Load();
+        UncappedActs.UncappedActsConfig.Load();
 
         Harmony harmony = new(ModId);
 

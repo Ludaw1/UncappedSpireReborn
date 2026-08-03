@@ -62,6 +62,7 @@
 
     <ItemGroup>
       <Content Include="UpgradeCaps.json" />
+      <Content Include="UncappedActsConfig.json" />
     </ItemGroup>
 
     <Target Name="CheckDependencyPaths">
@@ -100,6 +101,7 @@
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Copy SourceFiles="UpgradeCaps.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+        <Copy SourceFiles="UncappedActsConfig.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
     </Target> 
     
     <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
