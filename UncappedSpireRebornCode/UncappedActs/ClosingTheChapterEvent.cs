@@ -25,7 +25,7 @@ namespace UncappedSpireReborn.UncappedSpireRebornCode.UncappedActs;
 // class is named/namespaced as - Tobiline's mod referenced MegaCrit.Sts2.Core.Models.Events.TheArchitect.
 public class ClosingTheChapterEvent : CustomEventModel
 {
-    public override bool IsShared => true;
+    public override bool IsShared => false;
 
     public override string CustomInitialPortraitPath => "res://UncappedSpireReborn/images/events/closing_the_chapter.png";
 
